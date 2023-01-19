@@ -9,3 +9,43 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  grid      Grid[]
+  createdAt DateTime @default(now())
+}
+
+model Grid {
+  id        Int      @id @default(autoincrement())
+  height    Int
+  length    Int
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  robot     Robot[]
+  createdAt DateTime @default(now())
+}
+
+model Robot {
+  id        Int      @id @default(autoincrement())
+  positions   Positions[]
+  instruction String
+  final     String
+  gridId    Int
+  grid      Grid     @relation(fields: [gridId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Positions{
+  id        Int      @id @default(autoincrement())
+  x         Int
+  y         Int
+  direction String
+  type      String
+  robotId   Int
+  robot     Robot    @relation(fields: [robotId], references: [id])
+  createdAt DateTime @default(now())
+}
