@@ -33,7 +33,6 @@ model Robot {
   id        Int      @id @default(autoincrement())
   positions   Positions[]
   instruction String
-  final     String
   gridId    Int
   grid      Grid     @relation(fields: [gridId], references: [id])
   createdAt DateTime @default(now())
