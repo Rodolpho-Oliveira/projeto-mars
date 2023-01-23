@@ -25,8 +25,6 @@ export async function singInService({email, password}: {email: string, password:
 
     const JWT = process.env.JWT_TOKEN
 
-    console.log(check, passwordCheck)
-
     const token = jwt.sign({ email: check.email }, JWT)
     return token
 }
