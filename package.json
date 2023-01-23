@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i",
-    "dev": "npx nodemon ./src/app/server.ts"
+    "dev": "npx nodemon ./src/app/server.ts",
+    "prisma:migration": "npx prisma migrate dev --name init",
+    "dev:docker:up": "docker-compose -f docker-compose.yml --env-file .env up",
+    "dev:docker:donw": "docker-compose -f docker-compose.yml --env-file .env down"
   },
   "keywords": [],
   "author": "",
