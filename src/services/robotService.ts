@@ -17,6 +17,8 @@ export async function checkGridArea({height, length, userId}: CreateGridData, {i
     const finalPosition = await calculateRobotFinalPosition({height, length, userId}, {instruction}, {x, y, direction})
 
     await createNewGrid({height, length, userId}, {instruction}, {x, y, direction}, finalPosition)
+
+    return finalPosition
 }
 
 export async function calculateRobotFinalPosition({height, length, userId}: CreateGridData, {instruction}: CreateRobotData, {x, y, direction}: CreatePositionData) {

@@ -11,7 +11,7 @@ export async function createGrid(req: Request, res: Response) {
     const {instruction}: CreateRobotData = req.body
     const {x, y, direction}: CreatePositionData = req.body
     const id: number = res.locals.user
-    
-    await checkGridArea({height, length, userId:id}, {instruction}, {x, y, direction})
-    res.status(201).send("Robot created")
+
+    const finalPosition = await checkGridArea({height, length, userId:id}, {instruction}, {x, y, direction})
+    res.status(201).send({LandingPosition: `${x} ${y} ${direction}`, Instruction: instruction, FinalPosition: `${finalPosition.x} ${finalPosition.y} ${finalPosition.direction}`})
 }
