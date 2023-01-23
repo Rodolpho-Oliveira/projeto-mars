@@ -2,7 +2,7 @@
   "name": "projeto-rover",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "type": "module",
   "scripts": {
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i",
