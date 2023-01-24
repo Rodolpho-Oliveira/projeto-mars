@@ -15,7 +15,6 @@ beforeAll(async () => {
 
 describe("Create robot", () => {
     it("Should create a new robot and return 201", async () => {
-        console.log(token)
         const body = {
             height: 5,
             length: 5,
