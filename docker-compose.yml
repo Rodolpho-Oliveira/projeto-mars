@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_DB=${POSTGRES_DB}
     ports:
-      - ${POSTGRES_PORT}:5432
+      - ${POSTGRES_PORT}:7884
     container_name: rover_db
   
   app:
@@ -19,7 +19,7 @@ services:
     environment:
       - JWT_TOKEN=${JWT_TOKEN}
       - PORT=${PORT}
-      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@containers-us-west-45.railway.app:7884/${POSTGRES_DB}
     ports:
       - ${PORT}:${PORT}
     volumes:

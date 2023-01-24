@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-	  "start": "node dist/app/server.js",
+	  "start": "npm run build && node dist/src/app/server.js",
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i",
     "dev": "npx nodemon ./src/app/server.ts",
     "prisma:migration": "npx prisma migrate dev --name init",
